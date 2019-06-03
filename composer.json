@@ -1,25 +1,26 @@
 {
-  "name": "pilotcz/lazy-tracy",
-  "keywords": [
-    "tracy",
-    "bar",
-    "vendor",
-    "composer",
-    "composer.lock"
-  ],
-  "description": "Lazy loaded tracy toolbar",
-  "license": [
-    "MIT"
-  ],
-  "version": "0.0.1",
-  "type": "library",
-  "require": {
-    "php": ">= 7.2",
-    "tracy/tracy": "^2.4"
-  },
-  "autoload": {
-    "psr-4": {
-      "PilotCz\\LazyTracy\\": "src/"
+    "name": "pilotcz/lazy-tracy",
+    "keywords": [
+        "tracy",
+        "bar",
+        "vendor",
+        "composer",
+        "composer.lock"
+    ],
+    "description": "Lazy loaded tracy toolbar",
+    "license": [
+        "MIT"
+    ],
+    "version": "0.0.1",
+    "type": "library",
+    "require": {
+        "php": ">= 7.2",
+        "tracy/tracy": "^2.4",
+        "nette/utils": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "PilotCz\\LazyTracy\\": "src/"
+        }
     }
-  }
 }

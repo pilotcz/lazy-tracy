@@ -1,0 +1,53 @@
+<?php
+namespace PilotCz\LazyTracy\Panel;
+
+?>
+<script>
+    if (!onlazyLoadElementVisible) {
+        function onlazyLoadElementVisible(target, onVisible) {
+            (new IntersectionObserver(function (entries) {
+                entries.forEach((entry) => {
+                    if (entry.intersectionRatio > 0) {
+                        onVisible(entry.target);
+                        this.unobserve(entry.target);
+                    }
+                });
+            })).observe(target);
+        }
+    }
+
+    if (!lazyLoadContentAjax) {
+        function lazyLoadContentAjax(url, callback) {
+            let request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    callback(this.responseText);
+                }
+            };
+            request.open("GET", url, true);
+            request.setRequestHeader('X-Tracy-Ajax', 0);
+            request.send();
+        }
+    }
+
+    if (!lazyLoadContent) {
+        function lazyLoadContent(panel) {
+            let element = panel.querySelector('[data-lazy-url-content]');
+
+            lazyLoadContentAjax(element.getAttribute('data-lazy-url-content'), function (response) {
+                element.innerHTML = response;
+            });
+        }
+    }
+
+    onlazyLoadElementVisible(
+        document.getElementById('tracy-debug-panel-<?php echo $this->uid ?>'),
+        function (panel) {
+            lazyLoadContent(panel);
+        });
+</script>
+
+<span class="tracy-label">
+    <?php echo $this->tabIcon ?>
+    <?php echo $this->tabText ?>
+</span>

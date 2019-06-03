@@ -5,13 +5,81 @@ use Tracy;
 
 class Panel implements Tracy\IBarPanel
 {
-    public function getPanel()
+    /**
+     * UID
+     * @var string
+     */
+    private $uid;
+
+    /**
+     * URL
+     * @var string
+     */
+    private $url;
+
+    /**
+     * Tab text
+     * @var string
+     */
+    private $tabText;
+
+    /**
+     * Tab icon
+     * @var string
+     */
+    private $tabIcon;
+
+    public function getPanel(): string
     {
-        // TODO: Implement getPanel() method.
+        ob_start();
+        require __DIR__ . '/templates/Panel.phtml';
+        return ob_get_clean();
     }
 
-    public function getTab()
+    public function getTab(): string
     {
-        // TODO: Implement getTab() method.
+        ob_start();
+        require __DIR__ . '/templates/Tab.phtml';
+        return ob_get_clean();
+    }
+
+    /**
+     * @param string $tabText
+     * @return Panel
+     */
+    public function setTabText(string $tabText): Panel
+    {
+        $this->tabText = $tabText;
+        return $this;
+    }
+
+    /**
+     * @param string $tabIcon
+     * @return Panel
+     */
+    public function setTabIcon(string $tabIcon): Panel
+    {
+        $this->tabIcon = $tabIcon;
+        return $this;
+    }
+
+    /**
+     * @param string $uid
+     * @return Panel
+     */
+    public function setUid(string $uid): Panel
+    {
+        $this->uid = strtr($uid, ['\\' => '-']);
+        return $this;
+    }
+
+    /**
+     * @param string $url
+     * @return Panel
+     */
+    public function setUrl(string $url): Panel
+    {
+        $this->url = $url;
+        return $this;
     }
 }
