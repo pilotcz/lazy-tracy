@@ -27,7 +27,6 @@ class CustomTracyPanel extends Panel
      */
     public function __construct(LinkGenerator $linkGenerator)
     {
-    
         $url = $linkGenerator->link('System:gitPanel');
         
         $this->setUid(self::class);
