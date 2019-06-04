@@ -29,6 +29,11 @@ class Panel implements Tracy\IBarPanel
      */
     private $tabIcon;
 
+    /**
+     * Get panel
+     * @author Miroslav Kovář
+     * @return string
+     */
     public function getPanel(): string
     {
         ob_start();
@@ -36,6 +41,11 @@ class Panel implements Tracy\IBarPanel
         return ob_get_clean();
     }
 
+    /**
+     * Get tab
+     * @author Miroslav Kovář
+     * @return string
+     */
     public function getTab(): string
     {
         ob_start();
