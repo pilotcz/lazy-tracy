@@ -2,15 +2,10 @@
     "name": "pilotcz/lazy-tracy",
     "keywords": [
         "tracy",
-        "bar",
-        "vendor",
-        "composer",
-        "composer.lock"
+        "bar"
     ],
     "description": "Lazy loaded tracy toolbar",
-    "license": [
-        "MIT"
-    ],
+    "license": "MIT",
     "version": "1.0.2",
     "type": "library",
     "require": {
