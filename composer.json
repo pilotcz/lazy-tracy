@@ -2,7 +2,8 @@
     "name": "pilotcz/lazy-tracy",
     "keywords": [
         "tracy",
-        "bar"
+        "bar",
+        "lazyload"
     ],
     "description": "Lazy loaded tracy toolbar",
     "license": "MIT",
